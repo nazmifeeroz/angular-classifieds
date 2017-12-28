@@ -6,7 +6,10 @@
     .module("ngClassifieds")
     .controller("classifiedsCtrl", function($scope) {
 
-      $scope.name = "Nazmi";
+      $scope.name = {
+        first: "Nazmi",
+        last: "feeroz"
+      };
 
     })
 })();

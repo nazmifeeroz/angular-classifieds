@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>ngClassifieds</title>
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
     <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css" media="all">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body ng-app="ngClassifieds" ng-controller="classifiedsCtrl">
 
@@ -17,6 +19,10 @@
       </div>
       
     </md-toolbar>
+
+    <hello-world></hello-world>
+
+    <p> {{ name.first + ' ' + name.last }} </p>
 
     <script src="node_modules/angular/angular.js"></script> 
     <script src="node_modules/angular-animate/angular-animate.js"></script>

@@ -1,13 +1,29 @@
 <html>
   <head>
     <title>ngClassifieds</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css" media="all">
   </head>
   <body ng-app="ngClassifieds" ng-controller="classifiedsCtrl">
 
-    <input type="text" placeholder="Enter your name" ng-model="name.first">
-    <h1>{{ name.first + ' ' + name.last }}</h1>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <p><strong>ngClassifieds</strong></p>
+
+        <md-button>
+          <md-icon class="mdi mdi-plus-circle"></md-icon>
+          New Classified
+        </md-button>
+      </div>
+      
+    </md-toolbar>
+
+    <script src="node_modules/angular/angular.js"></script> 
+    <script src="https://code.angularjs.org/1.6.8/angular-animate.js"></script>
+    <script src="https://code.angularjs.org/1.6.8/angular-aria.js"></script>
+    <!-- Angular Material Javascript now available via Google CDN; version 0.9.4 used here -->
+    <script src="node_modules/angular-material/angular-material.js"></script> 
     
-    <script src="node_modules/angular/angular.js"></script>
     <script src="scripts/app.js"></script>
     <script src="components/classifieds.ctr.js"></script>
   </body>

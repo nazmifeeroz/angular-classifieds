@@ -20,16 +20,93 @@
       
     </md-toolbar>
 
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+        <md-toolbar>
+          <h1 class="md-toolbar-tools">Add a Classified</h1>
+        </md-toolbar>
+
+        <md-content layout-padding>
+          
+          <form>
+            <md-input-container>
+              <label for="title">Title</label>
+              <input type="text" id="title" md-autofocus>
+            </md-input-container>
+            <md-input-container>
+              <label for="price">Price</label>
+              <input type="text" id="price">
+            </md-input-container>
+            <md-input-container>
+              <label for="description">Description</label>
+              <textarea id="description"></textarea>
+            </md-input-container>
+            <md-input-container>
+              <label for="image">Image Link</label>
+              <input type="text" id="image">
+            </md-input-container>
+            <md-button class="md-primary">
+              Save
+            </md-button>
+            <md-button class="md-primary">
+              Save Edit
+            </md-button>
+            <md-button class="md-warn">
+              Cancel
+            </md-button>
+          </form>
+        </md-content>
+    </md-sidenav>
+
     <md-content class="md-padding" layout="row" layout-wrap>
       <md-card ng-repeat="classified in classifieds" flex="30">
         <img ng-src="{{ classified.image }}" alt="">
         <md-card-content>
-          <div class="classified-info">
+          <div class="classified-info" ng-show="!showDetails">
             <h2 class="md-title">{{ classified.title }}</h2>
             <h2>{{ classified.posted | date:'longDate' }}</h2>
             <h3>{{ classified.price | currency }}</h3>
             <p>{{ classified.description }}</p>
           </div>
+
+          <div class="classified-contact" ng-show="showDetails">
+            <p><md-icon class="mdi mdi-account"></md-icon> {{ classified.details.bedrooms }} </p>
+            <p><md-icon class="mdi mdi-email"></md-icon> {{ classified.details.bathrooms }} </p>
+            <p><md-icon class="mdi mdi-phone"></md-icon> {{ classified.details.area }} </p>
+          </div>
+
+          <div layout="row">
+
+            <md-button 
+              ng-show="!showDetails"
+              ng-click="showDetails = true">
+              Area
+            </md-button>
+            <md-button 
+              ng-show="showDetails"
+              ng-click="showDetails = false">
+              Details
+            </md-button>
+            <md-button 
+              ng-show="!showAdmin"
+              ng-click="showAdmin = true">
+              Admin
+            </md-button>
+            <md-button 
+              ng-show="showAdmin"
+              ng-click="showAdmin = false">
+              Close
+            </md-button>
+
+          </div>
+
+          <div class="classified-admin" ng-if="showAdmin">
+            <h3>Admin</h3>
+            <div layout="row">
+              <md-button class="md-primary">Edit</md-button>
+              <md-button class="md-warn">Delete</md-button>
+            </div>
+          </div>
+
         </md-card-content>
       </md-card>
     </md-content>
@@ -42,5 +119,6 @@
     
     <script src="scripts/app.js"></script>
     <script src="components/classifieds.ctr.js"></script>
+    <script src="components/classifieds.fac.js"></script>
   </body>
 </html>

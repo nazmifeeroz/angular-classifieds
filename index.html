@@ -12,7 +12,7 @@
       <div class="md-toolbar-tools">
         <p><strong>ngClassifieds</strong></p>
 
-        <md-button>
+        <md-button ng-click="openSidebar()">
           <md-icon class="mdi mdi-plus-circle"></md-icon>
           New Classified
         </md-button>
@@ -38,7 +38,7 @@
             </md-input-container>
             <md-input-container>
               <label for="description">Description</label>
-              <textarea id="description"></textarea>
+              <textarea type="text" id="description"></textarea>
             </md-input-container>
             <md-input-container>
               <label for="image">Image Link</label>
@@ -50,7 +50,7 @@
             <md-button class="md-primary">
               Save Edit
             </md-button>
-            <md-button class="md-warn">
+            <md-button ng-click="closeSidebar()" class="md-warn">
               Cancel
             </md-button>
           </form>

@@ -4,7 +4,7 @@
 
   angular 
     .module("ngClassifieds")
-    .controller("classifiedsCtrl", function($scope, $http, classifiedsFactory) {
+    .controller("classifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav) {
 
       classifiedsFactory.getClassifieds().then(function(classifieds) {
         
@@ -12,6 +12,13 @@
 
       });
 
+      $scope.openSidebar = function() {
+        $mdSidenav('left').open();
+      };
+
+      $scope.closeSidebar = function() {
+        $mdSidenav('left').close();
+      }
       
     });
 })();

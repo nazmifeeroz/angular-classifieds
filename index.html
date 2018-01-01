@@ -29,15 +29,14 @@
       
       <md-input-container>
         <label>Enter Search Term</label>
-        <input type="text" ng-model="classifiedFilters">
+        <input type="text" ng-model="classifiedsFilters">
       </md-input-container>
 
       <md-input-container>
         <label>Category</label>
-        <md-select>
-          <md-option ng-repeat="category in categories" value=" {{ category }} "> {{ category }} </md-option>
+        <md-select ng-model="category">
+          <md-option value="{{ category }}" ng-repeat="category in categories">{{ category }}</md-option>
         </md-select>
-        <input type="text" ng-model="classifiedFilters">
       </md-input-container>
 
     </div>
@@ -83,7 +82,9 @@
     </md-sidenav>
 
     <md-content class="md-padding" layout="row" layout-wrap>
-      <md-card ng-repeat="classified in classifieds | filter: classifiedFilters" flex="30">
+      <md-card ng-repeat="classified in classifieds | 
+                          filter: classifiedsFilters |
+                          filter: category" flex="30">
         <img ng-src="{{ classified.image }}" alt="">
         <md-card-content>
           <div class="classified-info" ng-show="!showDetails">
@@ -140,6 +141,7 @@
     <script src="node_modules/angular-aria/angular-aria.js"></script>
     <!-- Angular Material Javascript now available via Google CDN; version 0.9.4 used here -->
     <script src="node_modules/angular-material/angular-material.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
     
     <script src="scripts/app.js"></script>
     <script src="components/classifieds.ctr.js"></script>
